@@ -38,7 +38,7 @@ export const updateFruit = (batchId, fruit) => (dispatch, getState) => {
   // const state = getState()
   // const jwt = state.currentUser.jwt
   request
-    .patch(`${baseUrl}/fruits/${fruitId}`)
+    .patch(`${baseUrl}/fruits`)
     // .set('Authorization', `Bearer ${jwt}`)
     .send({fruit})
     .then(result => {

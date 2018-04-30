@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import FruitList from './components/FruitList'
 
 //MATERIALUI
   //PROVIDER
@@ -12,6 +14,7 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className="App">
+          <Route exact path="/fruits" component={FruitList} />
 
 
           </div>
