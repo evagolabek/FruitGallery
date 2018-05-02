@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import FruitList from './components/FruitList'
+import NavBar from './components/NavBar'
 
 //MATERIALUI
   //PROVIDER
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <Router>
         <MuiThemeProvider>
+        <NavBar />
           <div className="App">
           <Route exact path="/fruits" component={FruitList} />
 
