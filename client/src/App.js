@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-import FruitList from './components/FruitList'
 import NavBar from './components/NavBar'
+import FruitList from './components/FruitList'
+import FruitDetails from './components/FruitDetails'
+
 
 //MATERIALUI
   //PROVIDER
@@ -14,11 +16,11 @@ class App extends Component {
     return (
       <Router>
         <MuiThemeProvider>
-        <NavBar />
           <div className="App">
-          <Route exact path="/fruits" component={FruitList} />
-
-
+            <NavBar />
+            <Route exact path="/fruits" component={FruitList} />
+            <Route exact path="/fruits/:fruitId" component={FruitDetails} />
+            <Route exact path="/" render= { () => <Redirect to="/fruits"/> } />
           </div>
         </MuiThemeProvider>
       </Router>

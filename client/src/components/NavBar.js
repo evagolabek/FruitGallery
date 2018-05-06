@@ -11,7 +11,7 @@ class NavBar extends PureComponent {
     return (
       <nav>
         <div class="nav-wrapper red">
-          <a href="./" class="brand-logo"><i class="material-icons"></i>Fruit Gallery</a>
+          <a href="./" class="brand-logo"><i class="material-icons"></i>Home</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
         </div>
       </nav>
