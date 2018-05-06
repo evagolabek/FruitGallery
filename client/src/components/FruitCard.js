@@ -5,8 +5,6 @@ import {Card, CardMedia, CardTitle} from 'material-ui'
 
 
 
-
-
 export class FruitCard extends PureComponent {
   static propTypes = {
     id: PropTypes.number.isRequired,
@@ -16,20 +14,29 @@ export class FruitCard extends PureComponent {
     pricePerKilo: PropTypes.number.isRequired,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { shadow: 1 }
+  }
+
+  onMouseOver = () => this.setState({ shadow: 3 });
+  onMouseOut = () => this.setState({ shadow: 1 });
+
 
   render() {
 
     return(
-      <div className = 'fruit-card'>
-        <Card>
-          <CardMedia>
-            <img src="https://www.worldatlas.com/r/w728-h425-c728x425/upload/46/cb/e1/shutterstock-252338818.jpg" alt="" />
-          </CardMedia>
-          <CardTitle title={this.props.type} subtitle={this.props.origin} />
-        </Card>
-      </div>
-
-
+      <Card
+        className = 'fruit-card'
+        onMouseOver={this.onMouseOver}
+        onMouseOut={this.onMouseOut}
+        zDepth={this.state.shadow}
+      >
+        <CardMedia>
+          <img src={this.props.img} alt="" />
+        </CardMedia>
+        <CardTitle title={this.props.type} subtitle={this.props.origin} />
+      </Card>
     )
   }
 }

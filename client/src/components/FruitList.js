@@ -22,10 +22,17 @@ const myFruits =
 },
 {
  id: 3,
- type: "banana",
- img: "../images/banana.jpg",
- origin: "Ghana",
+ type: "peach",
+ img: "../images/peach.jpg",
+ origin: "North China",
  pricePerKilo: "7€"
+},
+{
+ id: 4,
+ type: "pinapple",
+ img: "../images/pinapple.jpg",
+ origin: "Brazil",
+ pricePerKilo: "12€"
 },
 ]
 

@@ -1,3 +1,6 @@
 .fruit-card {
-  border: 2px solid green;
+  width: 240px;
+  height: 270px;
+  margin: 20px;
+  cursor: pointer;
 }

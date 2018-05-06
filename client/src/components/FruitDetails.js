@@ -1,55 +1,65 @@
 import React, { PureComponent } from 'react'
-// import './FruitDetails.css'
+import {connect} from 'react-redux'
+import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card'
+import './FruitDetails.css'
 
-const fruits =
+
+const myFruits =
 [
  {
   id: 1,
   type: "orange",
+  img: "../images/orange.jpg",
   origin: "Spain",
   pricePerKilo: "15€"
  },
-
  {
   id: 2,
   type: "apple",
+  img: "../images/apple.jpg",
   origin: "Poland",
   pricePerKilo: "5€"
- }
+},
+{
+ id: 3,
+ type: "peach",
+ img: "../images/peach.jpg",
+ origin: "North China",
+ pricePerKilo: "7€"
+},
+{
+ id: 4,
+ type: "pinapple",
+ img: "../images/pinapple.jpg",
+ origin: "Brazil",
+ pricePerKilo: "12€"
+},
 ]
 
 class FruitDetails extends PureComponent {
 
-
   render() {
 
-
     return (
-      <div className='fruit-details'>
-
-        <div className='fruit-list'>
-          <h2>Fruits</h2>
-          <table>
-            <tr className='fruit-header'>
-              <th>Type</th>
-              <th>Origin</th>
-              <th>Price per Kilo</th>
-            </tr>
-
-            {fruits && fruits.map(fruit =>
-            <tr className='fruit-row' onClick={_=>window.location.href=`/fruits/${fruit.id}`}>
-                <td className='fruit-type'>{`${fruit.type}`}</td>
-                <td className='fruit-origin'>{`${fruit.origin}`}</td>
-                <td className='fruit-pricePerKilo'>{`${fruit.pricePerKilo}`}</td>
-            </tr>
-            )}
-          </table>
-        </div>
-      </div>
+      <Card className = 'fruit-details'>
+        <CardMedia>
+          <img src={this.props.fruit.img} alt="" />
+        </CardMedia>
+        <CardTitle title={this.props.fruit.type} subtitle={this.props.fruit.origin} />
+        <CardText>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+         Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+         Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+         Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        </CardText>
+      </Card>
     )
   }
 }
 
+const mapStateToProps = (state, props) => ({
+  fruit: myFruits.find(fruit => `${fruit.id}` === props.match.params.fruitId)
+})
 
 
-export default (FruitDetails)
+export default connect(mapStateToProps)(FruitDetails)
