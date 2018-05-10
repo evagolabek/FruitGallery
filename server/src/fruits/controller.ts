@@ -1,0 +1,38 @@
+import { JsonController, Get, Put, Post, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
+import {Fruit} from './entity'
+
+@JsonController()
+export default class FruitController {
+
+  @Get('/fruits')
+  async allFruits() {
+    const fruits = await Fruit.find()
+    return { fruits }
+  }
+
+  @Get('/fruits/:id')
+  getFruit(
+    @Param('id') id: number
+  ) {
+    return Fruit.findOne(id)
+  }
+
+  @Put('/fruits/:id')
+  async updateFruit(
+    @Param('id') id: number,
+    @Body() update: Partial<Fruit>
+  ) {
+    const fruit = await Fruit.findOne(id)
+    if (!fruit) throw new NotFoundError('Cannot find fruit')
+
+    return Fruit.merge(fruit, update).save()
+  }
+
+  @Post('/fruits')
+  @HttpCode(201)
+  createFruit(
+    @Body() fruit: Fruit
+  ) {
+    return fruit.save()
+  }
+}
