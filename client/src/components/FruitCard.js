@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import {withRouter} from 'react-router-dom'
 import './FruitCard.css'
 import {Card, CardMedia, CardTitle} from 'material-ui'
 
@@ -31,6 +32,7 @@ export class FruitCard extends PureComponent {
         onMouseOver={this.onMouseOver}
         onMouseOut={this.onMouseOut}
         zDepth={this.state.shadow}
+        onClick={() => this.props.history.push(`/fruits/${this.props.id}`)}
       >
         <CardMedia>
           <img src={this.props.img} alt="" />
@@ -42,4 +44,4 @@ export class FruitCard extends PureComponent {
 }
 
 
-export default (FruitCard)
+export default withRouter (FruitCard)

@@ -11,7 +11,8 @@ const myFruits =
   type: "orange",
   img: "../images/orange.jpg",
   origin: "Spain",
-  pricePerKilo: "15€"
+  pricePerKilo: "15€",
+  info:"Bomb of vitamin C"
  },
  {
   id: 2,
@@ -34,6 +35,13 @@ const myFruits =
  origin: "Brazil",
  pricePerKilo: "12€"
 },
+{
+ id: 5,
+ type: "fig",
+ img: "../images/fig.jpg",
+ origin: "France",
+ pricePerKilo: "18€"
+},
 ]
 
 class FruitDetails extends PureComponent {
@@ -47,10 +55,7 @@ class FruitDetails extends PureComponent {
         </CardMedia>
         <CardTitle title={this.props.fruit.type} subtitle={this.props.fruit.origin} />
         <CardText>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-         Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-         Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+          {this.props.fruit.info}
         </CardText>
       </Card>
     )

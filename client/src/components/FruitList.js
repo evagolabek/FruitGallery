@@ -34,6 +34,13 @@ const myFruits =
  origin: "Brazil",
  pricePerKilo: "12€"
 },
+{
+ id: 5,
+ type: "fig",
+ img: "../images/fig.jpg",
+ origin: "France",
+ pricePerKilo: "18€"
+},
 ]
 
 class FruitList extends PureComponent {

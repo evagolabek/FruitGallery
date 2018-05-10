@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
-import AppBar from 'material-ui/AppBar'
+import {withRouter} from "react-router-dom";
+import AppBar from 'material-ui/AppBar';
 
 
 
@@ -10,10 +11,11 @@ class NavBar extends PureComponent {
     return (
       <AppBar
         title={<span style={{cursor: 'pointer'}}>Fruit Gallery</span>}
+        onClick={() => this.props.history.push(`/fruits`)}
       />
     );
   }
 }
 
 
-export default (NavBar)
+export default withRouter(NavBar)
