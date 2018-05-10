@@ -4,6 +4,7 @@ import FruitController from './fruits/controller'
 import setupDb from './db'
 
 const app = createKoaServer({
+  cors: true,
   controllers: [
     FruitController
   ]

@@ -9,6 +9,7 @@
     "@types/koa-multer": "^1.0.0",
     "@types/koa-router": "^7.0.28",
     "@types/node": "^10.0.5",
+    "kcors": "^2.2.1",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.0",
     "koa-multer": "^1.0.2",
