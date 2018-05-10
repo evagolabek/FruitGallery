@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
-import { IsString, IsNumber } from 'class-validator'
+import { IsString } from 'class-validator'
 
 @Entity()
 export class Fruit extends BaseEntity {
@@ -14,13 +14,13 @@ export class Fruit extends BaseEntity {
 
   @IsString()
   @Column('text', {nullable:false})
-  image: string
+  img: string
 
   @IsString()
   @Column('text', {nullable:false})
   origin: string
 
-  @IsNumber()
+  // @IsNumber() //does not allow input with httpie, not recognised as number
   @Column('real', {nullable:false})
   pricePerKilo: number
 
