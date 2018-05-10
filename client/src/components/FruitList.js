@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
+import {getFruits} from '../actions/fruits'
 import FruitCard from './FruitCard'
 import './FruitList.css'
 
@@ -44,11 +46,15 @@ const myFruits =
 ]
 
 class FruitList extends PureComponent {
+  componentDidMount() {
+    this.props.getFruits()
+  }
 
   render() {
+    const { fruits } = this.props
     return(
       <div className = 'fruit-list'>
-        { myFruits && myFruits.map(fruit =>
+        { fruits && fruits.map(fruit =>
             <FruitCard
               id={fruit.id}
               type={fruit.type}
@@ -63,5 +69,10 @@ class FruitList extends PureComponent {
   }
 }
 
+const mapStateToProps = (state, props) => ({
+	fruits: state.fruits
+})
 
-export default (FruitList)
+const mapDispatchToProps = {getFruits}
+
+export default connect (mapStateToProps, mapDispatchToProps)(FruitList)
