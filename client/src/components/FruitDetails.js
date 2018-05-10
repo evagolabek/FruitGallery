@@ -12,7 +12,7 @@ const myFruits =
   img: "../images/orange.jpg",
   origin: "Spain",
   pricePerKilo: "15€",
-  info:"Bomb of vitamin C"
+  benefits:"Bomb of vitamin C"
  },
  {
   id: 2,
@@ -55,7 +55,10 @@ class FruitDetails extends PureComponent {
         </CardMedia>
         <CardTitle title={this.props.fruit.type} subtitle={this.props.fruit.origin} />
         <CardText>
-          {this.props.fruit.info}
+          {this.props.fruit.pricePerKilo}
+          <br/>
+          <br/>
+          {this.props.fruit.benefits}
         </CardText>
       </Card>
     )
