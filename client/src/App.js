@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import FruitList from './components/FruitList'
 import FruitDetails from './components/FruitDetails'
+import FruitForm from './components/FruitForm'
 
 
 //MATERIALUI
@@ -20,6 +21,7 @@ class App extends Component {
             <NavBar />
             <Route exact path="/fruits" component={FruitList} />
             <Route exact path="/fruits/:fruitId" component={FruitDetails} />
+            <Route exact path="/addFruit" component={FruitForm} />
             <Route exact path="/" render= { () => <Redirect to="/fruits"/> } />
           </div>
         </MuiThemeProvider>

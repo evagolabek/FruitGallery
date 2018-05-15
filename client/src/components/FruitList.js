@@ -6,44 +6,44 @@ import './FruitList.css'
 
 
 
-const myFruits =
-[
- {
-  id: 1,
-  type: "orange",
-  img: "../images/orange.jpg",
-  origin: "Spain",
-  pricePerKilo: "15€"
- },
- {
-  id: 2,
-  type: "apple",
-  img: "../images/apple.jpg",
-  origin: "Poland",
-  pricePerKilo: "5€"
-},
-{
- id: 3,
- type: "peach",
- img: "../images/peach.jpg",
- origin: "North China",
- pricePerKilo: "7€"
-},
-{
- id: 4,
- type: "pinapple",
- img: "../images/pinapple.jpg",
- origin: "Brazil",
- pricePerKilo: "12€"
-},
-{
- id: 5,
- type: "fig",
- img: "../images/fig.jpg",
- origin: "France",
- pricePerKilo: "18€"
-},
-]
+// const myFruits =
+// [
+//  {
+//   id: 1,
+//   type: "orange",
+//   img: "../images/orange.jpg",
+//   origin: "Spain",
+//   pricePerKilo: "15€"
+//  },
+//  {
+//   id: 2,
+//   type: "apple",
+//   img: "../images/apple.jpg",
+//   origin: "Poland",
+//   pricePerKilo: "5€"
+// },
+// {
+//  id: 3,
+//  type: "peach",
+//  img: "../images/peach.jpg",
+//  origin: "North China",
+//  pricePerKilo: "7€"
+// },
+// {
+//  id: 4,
+//  type: "pinapple",
+//  img: "../images/pinapple.jpg",
+//  origin: "Brazil",
+//  pricePerKilo: "12€"
+// },
+// {
+//  id: 5,
+//  type: "fig",
+//  img: "../images/fig.jpg",
+//  origin: "France",
+//  pricePerKilo: "18€"
+// },
+// ]
 
 class FruitList extends PureComponent {
   componentDidMount() {
@@ -64,6 +64,7 @@ class FruitList extends PureComponent {
             />
           )
         }
+        <button onClick={_=>window.location.href=`/addFruit`} className='fruit-addButton'>Add New Fruit</button>
       </div>
     )
   }
@@ -75,4 +76,4 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = {getFruits}
 
-export default connect (mapStateToProps, mapDispatchToProps)(FruitList)
+export default connect(mapStateToProps, mapDispatchToProps)(FruitList)

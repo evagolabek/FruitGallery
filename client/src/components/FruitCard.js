@@ -44,4 +44,4 @@ export class FruitCard extends PureComponent {
 }
 
 
-export default withRouter (FruitCard)
+export default withRouter(FruitCard)
