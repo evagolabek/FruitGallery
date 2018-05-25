@@ -33,13 +33,13 @@ class FruitForm extends PureComponent {
 			  <form onSubmit={this.handleSubmit} name = 'FruitType'>
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
 						underlineFocusStyle={{ borderColor: '#F09517' }}
-						name='CountryofOrigin' floatingLabelText="Country of Origin:"
+						name='origin' floatingLabelText="Country of Origin:"
 						value={this.state.origin || ''} onChange={this.handleChange}/>
 					<br/>
 
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
 						underlineFocusStyle={{ borderColor: '#F09517' }}
-						name='Benefits' floatingLabelText="Benefits:"
+						name='benefits' floatingLabelText="Benefits:"
 						value={this.state.benefits || ''} onChange={this.handleChange}/>
 					<br/>
 
