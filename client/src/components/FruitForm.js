@@ -3,6 +3,10 @@ import {connect} from 'react-redux'
 import {createFruit} from '../actions/fruits'
 import './FruitForm.css'
 
+  import TextField from 'material-ui/TextField';
+  import Divider from 'material-ui/Divider';
+	// import Business from 'material-ui/svg-icons/communication/business'
+
 class FruitForm extends PureComponent {
 	state = {}
 
@@ -22,46 +26,42 @@ class FruitForm extends PureComponent {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-      <div className='add-fruit-form'>
+			<div className='add-fruit-form'>
+				<h1 style = {{ position: 'relative', top: 10 }}>Add Fruit</h1>
+			  <Divider style={{ height:4, width: 500 }} />
 
-				<div className='fruit-type'>
-					<label htmlFor="type">Fruit Type</label>
-					<input name="type" id="type" value={
-						this.state.type || ''
-					} onChange={ this.handleChange } />
-				</div>
+			  <form onSubmit={this.handleSubmit} name = 'FruitType'>
+					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
+						underlineFocusStyle={{ borderColor: '#F09517' }}
+						name='CountryofOrigin' floatingLabelText="Country of Origin:"
+						value={this.state.origin || ''} onChange={this.handleChange}/>
+					<br/>
 
-				<div>
-					<label htmlFor="fruit-origin">Fruit origin</label>
-					<input name="origin" id="origin" value={
-						this.state.origin || ''
-					} onChange={ this.handleChange } />
-				</div>
+					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
+						underlineFocusStyle={{ borderColor: '#F09517' }}
+						name='Benefits' floatingLabelText="Benefits:"
+						value={this.state.benefits || ''} onChange={this.handleChange}/>
+					<br/>
 
-				<div>
-					<label htmlFor="benefits">Benefits</label>
-					<input name="benefits" id="benefits" value={
-						this.state.benefits || ''
-					} onChange={ this.handleChange } />
-				</div>
+					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
+						underlineFocusStyle={{ borderColor: '#F09517' }}
+						name='pricePerKilo' floatingLabelText="Price per Kilo:"
+						value={this.state.pricePerKilo || ''} onChange={this.handleChange}/>
+					<br/>
 
-        <div>
-					<label htmlFor="price per kilo">Price Per Kilo</label>
-					<input name="pricePerKilo" id="pricePerKilo" value={
-						this.state.pricePerKilo || ''
-					} onChange={ this.handleChange } />
-				</div>
+					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
+						underlineFocusStyle={{ borderColor: '#F09517' }}
+						name='usedInRecipes' floatingLabelText="Used in Recipes:"/>
+					<br/>
 
-
-
-      </div>
-      <div className = 'button'>
-				<button type="submit">Save</button>
-      </div>
-			</form>
+					<div className = 'button'>
+					  <button type="submit">SAVE</button>
+					</div>
+			  </form>
+			</div>
 		)
 	}
 }
 
-export default connect (null,{createFruit})(FruitForm)
+
+export default connect(null,{ createFruit })(FruitForm)
