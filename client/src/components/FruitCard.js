@@ -35,7 +35,7 @@ export class FruitCard extends PureComponent {
         onClick={() => this.props.history.push(`/fruits/${this.props.id}`)}
       >
         <CardMedia>
-          <img src={this.props.img} alt="" />
+          <img src={this.props.img} alt="" style={{height:'180px', margin: 'auto'}} />
         </CardMedia>
         <CardTitle title={this.props.type} subtitle={this.props.origin} />
       </Card>

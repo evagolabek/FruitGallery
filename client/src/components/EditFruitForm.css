@@ -1,0 +1,16 @@
+.add-fruit-form {
+  display:  'inline-block';
+  margin-top: 35px;
+  margin: auto;
+  width: 500px;
+  height: 450px;
+  /* border: 2px solid lightgreen; */
+}
+
+.button {
+  display: flex;
+  background-color: lightblue;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
+}

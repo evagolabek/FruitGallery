@@ -40,7 +40,7 @@ export const createFruit = (fruit) => (dispatch, getState) => {
     })
     .catch(err => console.error(err))
 
-    // history.go() //TO TEST
+     history.go() //TO TEST
 }
 
 export const updateFruit = (fruitId, fruit) => (dispatch, getState) => {

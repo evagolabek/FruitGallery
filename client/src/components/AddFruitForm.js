@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {createFruit} from '../actions/fruits'
-import './FruitForm.css'
+import './AddFruitForm.css'
 
   import TextField from 'material-ui/TextField';
   import Divider from 'material-ui/Divider';
 	// import Business from 'material-ui/svg-icons/communication/business'
 
-class FruitForm extends PureComponent {
+class AddFruitForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
@@ -31,6 +31,13 @@ class FruitForm extends PureComponent {
 			  <Divider style={{ height:4, width: 500 }} />
 
 			  <form onSubmit={this.handleSubmit} name = 'FruitType'>
+
+					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
+						underlineFocusStyle={{ borderColor: '#F09517' }}
+						name='type' floatingLabelText="Fruit Type:"
+						value={this.state.type || ''} onChange={this.handleChange}/>
+					<br/>
+
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
 						underlineFocusStyle={{ borderColor: '#F09517' }}
 						name='origin' floatingLabelText="Country of Origin:"
@@ -51,7 +58,8 @@ class FruitForm extends PureComponent {
 
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
 						underlineFocusStyle={{ borderColor: '#F09517' }}
-						name='usedInRecipes' floatingLabelText="Used in Recipes:"/>
+						name='img' floatingLabelText="Image:"
+						value={this.state.img || ''} onChange={this.handleChange}/>
 					<br/>
 
 					<div className = 'button'>
@@ -64,4 +72,4 @@ class FruitForm extends PureComponent {
 }
 
 
-export default connect(null,{ createFruit })(FruitForm)
+export default connect(null,{ createFruit })(AddFruitForm)

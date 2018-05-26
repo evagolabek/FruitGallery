@@ -68,6 +68,7 @@ class FruitDetails extends PureComponent {
           <br/>
           {this.props.fruit.benefits}
         </CardText>
+        <button onClick={_=>window.location.href=`/editFruit`} className='fruit-editButton'>Edit</button>
       </Card>
     )
   }
