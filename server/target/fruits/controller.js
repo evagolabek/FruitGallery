@@ -31,6 +31,15 @@ let FruitController = class FruitController {
     createFruit(fruit) {
         return fruit.save();
     }
+    async deleteFruit(id) {
+        const fruit = await entity_1.Fruit.findOne(id);
+        if (!fruit)
+            throw new routing_controllers_1.NotFoundError('Fruit not found');
+        fruit.remove();
+        return {
+            message: 'Successfully removed'
+        };
+    }
 };
 __decorate([
     routing_controllers_1.Get('/fruits'),
@@ -61,6 +70,13 @@ __decorate([
     __metadata("design:paramtypes", [entity_1.Fruit]),
     __metadata("design:returntype", void 0)
 ], FruitController.prototype, "createFruit", null);
+__decorate([
+    routing_controllers_1.Delete('/fruits/:id'),
+    __param(0, routing_controllers_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], FruitController.prototype, "deleteFruit", null);
 FruitController = __decorate([
     routing_controllers_1.JsonController()
 ], FruitController);

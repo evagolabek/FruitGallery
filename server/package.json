@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "compile": "tsc -p ."
   }
 }

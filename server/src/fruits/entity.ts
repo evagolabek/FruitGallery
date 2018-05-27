@@ -10,7 +10,7 @@ export class Fruit extends BaseEntity {
 
   @IsString()
   @Column('text', {nullable:false})
-  type: string
+  name: string
 
   @IsString()
   @Column('text', {nullable:false})
@@ -19,10 +19,6 @@ export class Fruit extends BaseEntity {
   @IsString()
   @Column('text', {nullable:false})
   origin: string
-
-  // @IsNumber() //does not allow input with httpie, not recognised as number
-  @Column('real', {nullable:false})
-  pricePerKilo: number
 
   @IsString()
   @Column('text', {nullable:false})

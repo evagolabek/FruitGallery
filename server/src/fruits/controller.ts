@@ -1,4 +1,4 @@
-import { JsonController, Get, Put, Post, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
+import { JsonController, Get, Put, Post, Delete, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
 import {Fruit} from './entity'
 
 @JsonController()
@@ -34,5 +34,18 @@ export default class FruitController {
     @Body() fruit: Fruit
   ) {
     return fruit.save()
+  }
+
+
+  @Delete('/fruits/:id')
+  async deleteFruit(
+    @Param('id') id: number,
+  ){
+    const fruit = await Fruit.findOne(id)
+    if (!fruit) throw new NotFoundError('Fruit not found')
+    fruit.remove()
+    return {
+      message: 'Successfully removed'
+    }
   }
 }

@@ -22,7 +22,7 @@ __decorate([
     class_validator_1.IsString(),
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
-], Fruit.prototype, "type", void 0);
+], Fruit.prototype, "name", void 0);
 __decorate([
     class_validator_1.IsString(),
     typeorm_1.Column('text', { nullable: false }),
@@ -33,10 +33,6 @@ __decorate([
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
 ], Fruit.prototype, "origin", void 0);
-__decorate([
-    typeorm_1.Column('real', { nullable: false }),
-    __metadata("design:type", Number)
-], Fruit.prototype, "pricePerKilo", void 0);
 __decorate([
     class_validator_1.IsString(),
     typeorm_1.Column('text', { nullable: false }),
