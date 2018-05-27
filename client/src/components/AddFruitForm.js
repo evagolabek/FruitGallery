@@ -34,8 +34,8 @@ class AddFruitForm extends PureComponent {
 
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
 						underlineFocusStyle={{ borderColor: '#F09517' }}
-						name='type' floatingLabelText="Fruit Type:"
-						value={this.state.type || ''} onChange={this.handleChange}/>
+						name='name' floatingLabelText="Fruit Name:"
+						value={this.state.name || ''} onChange={this.handleChange}/>
 					<br/>
 
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
@@ -48,12 +48,6 @@ class AddFruitForm extends PureComponent {
 						underlineFocusStyle={{ borderColor: '#F09517' }}
 						name='benefits' floatingLabelText="Benefits:"
 						value={this.state.benefits || ''} onChange={this.handleChange}/>
-					<br/>
-
-					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}
-						underlineFocusStyle={{ borderColor: '#F09517' }}
-						name='pricePerKilo' floatingLabelText="Price per Kilo:"
-						value={this.state.pricePerKilo || ''} onChange={this.handleChange}/>
 					<br/>
 
 					<TextField floatingLabelFocusStyle={{ color: '#F09517' }}

@@ -9,7 +9,7 @@ import {Card, CardMedia, CardTitle} from 'material-ui'
 export class FruitCard extends PureComponent {
   static propTypes = {
     id: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     origin: PropTypes.string.isRequired,
     pricePerKilo: PropTypes.number.isRequired,
@@ -37,7 +37,7 @@ export class FruitCard extends PureComponent {
         <CardMedia>
           <img src={this.props.img} alt="" style={{height:'180px', margin: 'auto'}} />
         </CardMedia>
-        <CardTitle title={this.props.type} subtitle={this.props.origin} />
+        <CardTitle title={this.props.name} subtitle={this.props.origin} />
       </Card>
     )
   }

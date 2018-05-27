@@ -1,7 +1,7 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
 import history from '../history'
-import {SHOW_FRUITS, SHOW_FRUIT, ADD_FRUIT, UPDATE_FRUIT} from './types'
+import {SHOW_FRUITS, SHOW_FRUIT, ADD_FRUIT, UPDATE_FRUIT, DELETE_FRUIT} from './types'
 
 
 export const getFruits = () => (dispatch, getState) => {
@@ -40,13 +40,13 @@ export const createFruit = (fruit) => (dispatch, getState) => {
     })
     .catch(err => console.error(err))
 
-     history.go() //TO TEST
+  history.go()
 }
 
 export const updateFruit = (fruitId, fruit) => (dispatch, getState) => {
   request
-    .patch(`${baseUrl}/fruits/${fruitId}`)
-    .send({fruit})
+    .put(`${baseUrl}/fruits/${fruitId}`)
+    .send(fruit)
     .then(response => {
       dispatch({
         type: UPDATE_FRUIT,
@@ -54,4 +54,20 @@ export const updateFruit = (fruitId, fruit) => (dispatch, getState) => {
       })
     })
     .catch(err => console.error(err))
+
+  history.go()
+}
+
+export const deleteFruit = (fruitId) => (dispatch, getState) => {
+  request
+  .delete(`${baseUrl}/fruits/${fruitId}`)
+  .then( response => {
+    dispatch({
+      typer: DELETE_FRUIT,
+      payload: response.body
+    })
+  })
+  .catch(err => console.error(err))
+
+  history.go()
 }

@@ -2,54 +2,20 @@ import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import './FruitDetails.css'
-import {getFruit} from '../actions/fruits'
+import {getFruit, deleteFruit} from '../actions/fruits'
 
 
-// const myFruits =
-// [
-//  {
-//   id: 1,
-//   type: "orange",
-//   img: "../images/orange.jpg",
-//   origin: "Spain",
-//   pricePerKilo: "15€",
-//   benefits:"Bomb of vitamin C"
-//  },
-//  {
-//   id: 2,
-//   type: "apple",
-//   img: "../images/apple.jpg",
-//   origin: "Poland",
-//   pricePerKilo: "5€"
-// },
-// {
-//  id: 3,
-//  type: "peach",
-//  img: "../images/peach.jpg",
-//  origin: "North China",
-//  pricePerKilo: "7€"
-// },
-// {
-//  id: 4,
-//  type: "pinapple",
-//  img: "../images/pinapple.jpg",
-//  origin: "Brazil",
-//  pricePerKilo: "12€"
-// },
-// {
-//  id: 5,
-//  type: "fig",
-//  img: "../images/fig.jpg",
-//  origin: "France",
-//  pricePerKilo: "18€"
-// },
-// ]
 
 class FruitDetails extends PureComponent {
   componentDidMount() {
-    console.log(this.props.match.params.fruitId);
+    // console.log(this.props.match.params.fruitId);
     this.props.getFruit(this.props.match.params.fruitId)
   }
+
+  handleDelete = () => {
+		this.props.deleteFruit(this.props.match.params.fruitId)
+		this.props.history.push('/fruits')
+	}
 
   render() {
     // console.log(this.props.fruit);
@@ -61,14 +27,12 @@ class FruitDetails extends PureComponent {
         <CardMedia>
           <img src={this.props.fruit.img} alt="" />
         </CardMedia>
-        <CardTitle title={this.props.fruit.type} subtitle={this.props.fruit.origin} />
+        <CardTitle title={this.props.fruit.name} subtitle={this.props.fruit.origin} />
         <CardText>
-          {this.props.fruit.pricePerKilo}
-          <br/>
-          <br/>
           {this.props.fruit.benefits}
         </CardText>
-        <button onClick={_=>window.location.href=`/editFruit`} className='fruit-editButton'>Edit</button>
+        <button onClick={_=>window.location.href=`/editFruit/${this.props.fruitId}`} className='fruit-editButton'>Edit</button>
+        <button onClick={this.handleDelete} className='fruit-deleteButton'>Delete</button>
       </Card>
     )
   }
@@ -81,6 +45,6 @@ const mapStateToProps = (state, props) => ({
 
 // fruit: myFruits.find(fruit => `${fruit.id}` === props.match.params.fruitId)
 
-const mapDispatchToProps = {getFruit}
+const mapDispatchToProps = {getFruit, deleteFruit}
 
 export default connect(mapStateToProps, mapDispatchToProps)(FruitDetails)
