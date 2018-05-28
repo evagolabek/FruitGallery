@@ -7,6 +7,8 @@ import FruitList from './components/FruitList'
 import FruitDetails from './components/FruitDetails'
 import AddFruitForm from './components/AddFruitForm'
 import EditFruitForm from './components/EditFruitForm'
+import RecipeList from './components/RecipeList'
+import AddRecipeForm from './components/AddRecipeForm'
 
 
 //MATERIALUI
@@ -21,6 +23,8 @@ class App extends Component {
           <div className="App">
             <NavBar />
             <Route exact path="/fruits" component={FruitList} />
+            <Route exact path="/recipes" component={RecipeList} />
+            <Route exact path="/addRecipe" component={AddRecipeForm} />
             <Route exact path="/fruits/:fruitId" component={FruitDetails} />
             <Route exact path="/addFruit" component={AddFruitForm} />
             <Route exact path="/editFruit/:fruitId" component={EditFruitForm} />

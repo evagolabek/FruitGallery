@@ -14,72 +14,72 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const entity_1 = require("./entity");
-let FruitController = class FruitController {
+let RecipeController = class RecipeController {
     async allFruits() {
-        const fruits = await entity_1.Fruit.find();
-        return { fruits };
+        const recipes = await entity_1.Recipe.find();
+        return { recipes };
     }
     getFruit(id) {
-        return entity_1.Fruit.findOne(id);
+        return entity_1.Recipe.findOne(id);
     }
-    async updateFruit(id, update) {
-        const fruit = await entity_1.Fruit.findOne(id);
-        if (!fruit)
-            throw new routing_controllers_1.NotFoundError('Cannot find fruit');
-        return entity_1.Fruit.merge(fruit, update).save();
+    async updateRecipe(id, update) {
+        const recipe = await entity_1.Recipe.findOne(id);
+        if (!recipe)
+            throw new routing_controllers_1.NotFoundError('Cannot find recipe');
+        return entity_1.Recipe.merge(recipe, update).save();
     }
-    createFruit(fruit) {
-        return fruit.save();
+    createFruit(recipe) {
+        return recipe.save();
     }
-    async deleteFruit(id) {
-        const fruit = await entity_1.Fruit.findOne(id);
-        if (!fruit)
-            throw new routing_controllers_1.NotFoundError('Fruit not found');
-        fruit.remove();
+    async deleteRecipe(id) {
+        const recipe = await entity_1.Recipe.findOne(id);
+        if (!recipe)
+            throw new routing_controllers_1.NotFoundError('Recipe not found');
+        recipe.remove();
         return {
             message: 'Successfully removed'
         };
     }
 };
 __decorate([
-    routing_controllers_1.Get('/fruits'),
+    routing_controllers_1.Get('/recipes'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], FruitController.prototype, "allFruits", null);
+], RecipeController.prototype, "allFruits", null);
 __decorate([
-    routing_controllers_1.Get('/fruits/:id'),
+    routing_controllers_1.Get('/recipes/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
-], FruitController.prototype, "getFruit", null);
+], RecipeController.prototype, "getFruit", null);
 __decorate([
-    routing_controllers_1.Put('/fruits/:id'),
+    routing_controllers_1.Put('/recipes/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
-], FruitController.prototype, "updateFruit", null);
+], RecipeController.prototype, "updateRecipe", null);
 __decorate([
-    routing_controllers_1.Post('/fruits'),
+    routing_controllers_1.Post('/recipes'),
     routing_controllers_1.HttpCode(201),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof entity_1.Fruit !== "undefined" && entity_1.Fruit) === "function" && _a || Object]),
+    __metadata("design:paramtypes", [typeof (_a = typeof entity_1.Recipe !== "undefined" && entity_1.Recipe) === "function" && _a || Object]),
     __metadata("design:returntype", void 0)
-], FruitController.prototype, "createFruit", null);
+], RecipeController.prototype, "createFruit", null);
 __decorate([
-    routing_controllers_1.Delete('/fruits/:id'),
+    routing_controllers_1.Delete('/recipes/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], FruitController.prototype, "deleteFruit", null);
-FruitController = __decorate([
+], RecipeController.prototype, "deleteRecipe", null);
+RecipeController = __decorate([
     routing_controllers_1.JsonController()
-], FruitController);
-exports.default = FruitController;
+], RecipeController);
+exports.default = RecipeController;
 var _a;
 //# sourceMappingURL=controller.js.map

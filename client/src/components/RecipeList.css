@@ -1,0 +1,14 @@
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipe-addButton {
+   background-color: white;
+   margin-top: 20px;
+   height: 100px;
+   width: 200px;
+   color: black;
+   border: 2px solid #008CBA;
+}

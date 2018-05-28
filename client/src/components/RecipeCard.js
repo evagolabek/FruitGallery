@@ -1,18 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
-import './FruitCard.css'
+import './RecipeCard.css'
 import {Card, CardMedia, CardTitle} from 'material-ui'
 
 
 
-export class FruitCard extends PureComponent {
+export class RecipeCard extends PureComponent {
   static propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
-    origin: PropTypes.string.isRequired,
-    benefits: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -28,11 +26,11 @@ export class FruitCard extends PureComponent {
 
     return(
       <Card
-        className = 'fruit-card'
+        className = 'recipe-card'
         onMouseOver={this.onMouseOver}
         onMouseOut={this.onMouseOut}
         zDepth={this.state.shadow}
-        onClick={() => this.props.history.push(`/fruits/${this.props.id}`)}
+        onClick={() => this.props.history.push(`/recipes/${this.props.id}`)}
       >
         <CardMedia>
           <img src={this.props.img} alt="" style={{height:'180px', margin: 'auto'}} />
@@ -44,4 +42,4 @@ export class FruitCard extends PureComponent {
 }
 
 
-export default withRouter(FruitCard)
+export default withRouter(RecipeCard)

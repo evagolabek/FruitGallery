@@ -36,7 +36,6 @@ export default class FruitController {
     return fruit.save()
   }
 
-
   @Delete('/fruits/:id')
   async deleteFruit(
     @Param('id') id: number,

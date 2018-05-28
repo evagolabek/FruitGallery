@@ -12,39 +12,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const BaseEntity_1 = require("typeorm/repository/BaseEntity");
 const class_validator_1 = require("class-validator");
-const entity_1 = require("../recipes/entity");
-let Fruit = class Fruit extends BaseEntity_1.BaseEntity {
+const entity_1 = require("../fruits/entity");
+let Recipe = class Recipe extends BaseEntity_1.BaseEntity {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Fruit.prototype, "id", void 0);
+], Recipe.prototype, "id", void 0);
 __decorate([
     class_validator_1.IsString(),
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
-], Fruit.prototype, "name", void 0);
+], Recipe.prototype, "name", void 0);
 __decorate([
     class_validator_1.IsString(),
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
-], Fruit.prototype, "img", void 0);
+], Recipe.prototype, "img", void 0);
 __decorate([
-    class_validator_1.IsString(),
-    typeorm_1.Column('text', { nullable: false }),
-    __metadata("design:type", String)
-], Fruit.prototype, "origin", void 0);
-__decorate([
-    class_validator_1.IsString(),
-    typeorm_1.Column('text', { nullable: false }),
-    __metadata("design:type", String)
-], Fruit.prototype, "benefits", void 0);
-__decorate([
-    typeorm_1.ManyToOne(_ => entity_1.default, recipe => recipe.fruits),
+    typeorm_1.OneToMany(_ => entity_1.default, fruit => fruit.recipe),
     __metadata("design:type", Array)
-], Fruit.prototype, "recipe", void 0);
-Fruit = __decorate([
+], Recipe.prototype, "fruits", void 0);
+Recipe = __decorate([
     typeorm_1.Entity()
-], Fruit);
-exports.default = Fruit;
+], Recipe);
+exports.default = Recipe;
 //# sourceMappingURL=entity.js.map
