@@ -16,10 +16,8 @@ export default class RecipeFruit extends BaseEntity {
   @ManyToOne(_=> Recipe, recipe => recipe.recipeFruits)
   recipe: Recipe;
 
-
-  @IsString()
-  @Column('te', {nullable:false})
-  quantity: string
+  @Column()
+  quantity: number
   //
   // @IsString()
   // @Column('text', {nullable:false})
