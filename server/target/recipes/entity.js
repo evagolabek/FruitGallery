@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const BaseEntity_1 = require("typeorm/repository/BaseEntity");
 const class_validator_1 = require("class-validator");
+const entity_1 = require("../recipeFruits/entity");
 let Recipe = class Recipe extends BaseEntity_1.BaseEntity {
 };
 __decorate([
@@ -28,6 +29,10 @@ __decorate([
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
 ], Recipe.prototype, "img", void 0);
+__decorate([
+    typeorm_1.OneToMany(_ => entity_1.default, recipeFruit => recipeFruit.recipe),
+    __metadata("design:type", Array)
+], Recipe.prototype, "recipeFruits", void 0);
 Recipe = __decorate([
     typeorm_1.Entity()
 ], Recipe);

@@ -1,7 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
 import { IsString } from 'class-validator'
-import Fruit from '../fruits/entity'
+import RecipeFruit from '../recipeFruits/entity'
+
 
 @Entity()
 export default class Recipe extends BaseEntity {
@@ -17,7 +18,7 @@ export default class Recipe extends BaseEntity {
   @Column('text', {nullable:false})
   img: string
 
-  // @OneToMany(_=> Fruit, fruit => fruit.recipe)
-  // fruits: Fruit[]
+  @OneToMany(_=> RecipeFruit, recipeFruit => recipeFruit.recipe)
+  recipeFruits: RecipeFruit[]
 
 }

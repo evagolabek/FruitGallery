@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
 import { IsString } from 'class-validator'
-import Recipe from '../recipes/entity'
+import RecipeFruit from '../recipeFruits/entity'
+
 
 @Entity()
 export default class Fruit extends BaseEntity {
@@ -24,6 +25,9 @@ export default class Fruit extends BaseEntity {
   @IsString()
   @Column('text', {nullable:false})
   benefits: string
+
+  @OneToMany(_=> RecipeFruit, recipeFruit => recipeFruit.fruit)
+  recipeFruits: RecipeFruit[]
 
   // @ManyToOne(_=> Recipe, recipe => recipe.fruits)
   // recipe: Recipe;

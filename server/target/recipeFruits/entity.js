@@ -11,12 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const BaseEntity_1 = require("typeorm/repository/BaseEntity");
+const class_validator_1 = require("class-validator");
+const entity_1 = require("../recipes/entity");
+const entity_2 = require("../fruits/entity");
 let RecipeFruit = class RecipeFruit extends BaseEntity_1.BaseEntity {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
 ], RecipeFruit.prototype, "id", void 0);
+__decorate([
+    typeorm_1.ManyToOne(_ => entity_2.default, fruit => fruit.recipeFruits),
+    __metadata("design:type", entity_2.default)
+], RecipeFruit.prototype, "fruit", void 0);
+__decorate([
+    typeorm_1.ManyToOne(_ => entity_1.default, recipe => recipe.recipeFruits),
+    __metadata("design:type", entity_1.default)
+], RecipeFruit.prototype, "recipe", void 0);
+__decorate([
+    class_validator_1.IsString(),
+    typeorm_1.Column('te', { nullable: false }),
+    __metadata("design:type", String)
+], RecipeFruit.prototype, "quantity", void 0);
 RecipeFruit = __decorate([
     typeorm_1.Entity()
 ], RecipeFruit);
