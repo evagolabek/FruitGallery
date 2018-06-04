@@ -17,7 +17,7 @@ export default class Recipe extends BaseEntity {
   @Column('text', {nullable:false})
   img: string
 
-  @OneToMany(_=> Fruit, fruit => fruit.recipe)
-  fruits: Fruit[]
+  // @OneToMany(_=> Fruit, fruit => fruit.recipe)
+  // fruits: Fruit[]
 
 }

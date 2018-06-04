@@ -2,7 +2,9 @@ import { createConnection } from 'typeorm'
 import { DefaultNamingStrategy } from 'typeorm/naming-strategy/DefaultNamingStrategy'
 import { NamingStrategyInterface } from 'typeorm/naming-strategy/NamingStrategyInterface'
 import { snakeCase } from 'typeorm/util/StringUtils'
-import { Fruit } from './fruits/entity'
+import Fruit from './fruits/entity'
+import Recipe from './recipes/entity'
+import RecipeFruit from './recipeFruits/entity'
 
 class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrategyInterface {
 
@@ -28,7 +30,9 @@ createConnection({
 type: "postgres",
 url: process.env.DATABASE_URL || 'postgres://@localhost:5432/fruitGallery',
 entities: [
-  Fruit
+  Fruit,
+  Recipe,
+  RecipeFruit
 ],
 synchronize: true,
 logging: true,

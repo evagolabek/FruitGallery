@@ -25,6 +25,6 @@ export default class Fruit extends BaseEntity {
   @Column('text', {nullable:false})
   benefits: string
 
-  @ManyToOne(_=> Recipe, recipe => recipe.fruits)
-  recipe: Recipe[]
+  // @ManyToOne(_=> Recipe, recipe => recipe.fruits)
+  // recipe: Recipe;
 }
