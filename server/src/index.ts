@@ -1,12 +1,16 @@
 import 'reflect-metadata'
 import {createKoaServer} from 'routing-controllers'
 import FruitController from './fruits/controller'
+import RecipeController from './recipes/controller'
+import RecipeFruitController from './recipeFruits/controller'
 import setupDb from './db'
 
 const app = createKoaServer({
   cors: true,
   controllers: [
-    FruitController
+    FruitController,
+    RecipeController,
+    RecipeFruitController
   ]
 })
 

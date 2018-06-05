@@ -28,10 +28,10 @@ export const getRecipe = (recipeId) => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-export const createRecipe = (fruit) => (dispatch, getState) => {
+export const createRecipe = (recipe) => (dispatch, getState) => {
   request
     .post(`${baseUrl}/recipes`)
-    .send(fruit)
+    .send(recipe)
     .then(response => {
       dispatch({
         type: ADD_RECIPE,

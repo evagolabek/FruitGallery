@@ -16,23 +16,23 @@ const routing_controllers_1 = require("routing-controllers");
 const entity_1 = require("./entity");
 let RecipeController = class RecipeController {
     async allFruits() {
-        const recipes = await entity_1.Recipe.find();
+        const recipes = await entity_1.default.find();
         return { recipes };
     }
     getFruit(id) {
-        return entity_1.Recipe.findOne(id);
+        return entity_1.default.findOne(id);
     }
     async updateRecipe(id, update) {
-        const recipe = await entity_1.Recipe.findOne(id);
+        const recipe = await entity_1.default.findOne(id);
         if (!recipe)
             throw new routing_controllers_1.NotFoundError('Cannot find recipe');
-        return entity_1.Recipe.merge(recipe, update).save();
+        return entity_1.default.merge(recipe, update).save();
     }
     createFruit(recipe) {
         return recipe.save();
     }
     async deleteRecipe(id) {
-        const recipe = await entity_1.Recipe.findOne(id);
+        const recipe = await entity_1.default.findOne(id);
         if (!recipe)
             throw new routing_controllers_1.NotFoundError('Recipe not found');
         recipe.remove();
@@ -67,7 +67,7 @@ __decorate([
     routing_controllers_1.HttpCode(201),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof entity_1.Recipe !== "undefined" && entity_1.Recipe) === "function" && _a || Object]),
+    __metadata("design:paramtypes", [entity_1.default]),
     __metadata("design:returntype", void 0)
 ], RecipeController.prototype, "createFruit", null);
 __decorate([
@@ -81,5 +81,4 @@ RecipeController = __decorate([
     routing_controllers_1.JsonController()
 ], RecipeController);
 exports.default = RecipeController;
-var _a;
 //# sourceMappingURL=controller.js.map

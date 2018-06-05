@@ -1,5 +1,5 @@
 import { JsonController, Get, Put, Post, Delete, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
-import {Recipe} from './entity'
+import Recipe from './entity'
 
 @JsonController()
 export default class RecipeController {

@@ -16,7 +16,6 @@ class RecipeList extends PureComponent {
       <div className = 'recipe-list'>
         { recipes && recipes.map(recipe =>
             <RecipeCard
-              key={recipe.id}
               id={recipe.id}
               name={recipe.name}
               img={recipe.img}

@@ -11,6 +11,7 @@ class AddRecipeForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
+    console.log("HELLLLLO");
 		e.preventDefault()
 		this.props.createRecipe(this.state)
 		this.props.history.push('/recipes')
