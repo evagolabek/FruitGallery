@@ -1,8 +1,24 @@
 import { JsonController, Get, Put, Post, Delete, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
-import {RecipeFruit} from './entity'
+import { getConnection } from 'typeorm'
+import RecipeFruit from './entity'
 
 @JsonController()
 export default class RecipeFruitController {
+
+  @Get('/recipeFruits/:id')
+  async getRecipeFruits(
+    @Param('id') id: number
+  ) {
+    const myfruits = await getConnection()
+    .createQueryBuilder()
+    .select()
+    .from(RecipeFruit, "recipeFruit")
+    .leftJoinAndSelect("recipeFruit.fruit", "fruits")
+    .where("recipeFruit.recipeId = :id", { id: 6 })
+    .getOne();
+
+    return myfruits
+  }
 
   // @Get('/fruits')
   // async allFruits() {

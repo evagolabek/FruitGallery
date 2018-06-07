@@ -5,10 +5,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const entity_1 = require("./entity");
 let RecipeFruitController = class RecipeFruitController {
+    async getRecipeFruits(id) {
+        const myfruits = await typeorm_1.getConnection()
+            .createQueryBuilder()
+            .select()
+            .from(entity_1.default, "recipeFruit")
+            .leftJoinAndSelect("recipeFruit.fruit", "fruits")
+            .where("recipeFruit.recipeId = :id", { id: 6 })
+            .getOne();
+        return myfruits;
+    }
 };
+__decorate([
+    routing_controllers_1.Get('/recipeFruits/:id'),
+    __param(0, routing_controllers_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], RecipeFruitController.prototype, "getRecipeFruits", null);
 RecipeFruitController = __decorate([
     routing_controllers_1.JsonController()
 ], RecipeFruitController);
