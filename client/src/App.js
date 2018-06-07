@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
+import SimpleMenu from './components/SimpleMenu'
+
+
 import FruitList from './components/FruitList'
 import FruitDetails from './components/FruitDetails'
 import AddFruitForm from './components/AddFruitForm'
@@ -25,7 +28,7 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className="App">
-            <NavBar />
+            <SimpleMenu />
             <Route exact path="/fruits" component={FruitList} />
             <Route exact path="/fruits/:fruitId" component={FruitDetails} />
             <Route exact path="/addFruit" component={AddFruitForm} />
