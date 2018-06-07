@@ -36,6 +36,7 @@ export default class RecipeController {
     return recipe.save()
   }
 
+  //Might need modification for cascade
   @Delete('/recipes/:id')
   async deleteRecipe(
     @Param('id') id: number,

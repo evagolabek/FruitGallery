@@ -7,7 +7,7 @@ import './RecipeList.css'
 
 class RecipeList extends PureComponent {
   componentDidMount() {
-    // this.props.getRecipes()
+    this.props.getRecipes()
   }
 
   render() {

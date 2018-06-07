@@ -1,5 +1,5 @@
 import { JsonController, Get, Put, Post, Delete, HttpCode, Param, Body, NotFoundError } from 'routing-controllers'
-import {Fruit} from './entity'
+import Fruit from './entity'
 
 @JsonController()
 export default class FruitController {

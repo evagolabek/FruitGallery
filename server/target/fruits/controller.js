@@ -16,23 +16,23 @@ const routing_controllers_1 = require("routing-controllers");
 const entity_1 = require("./entity");
 let FruitController = class FruitController {
     async allFruits() {
-        const fruits = await entity_1.Fruit.find();
+        const fruits = await entity_1.default.find();
         return { fruits };
     }
     getFruit(id) {
-        return entity_1.Fruit.findOne(id);
+        return entity_1.default.findOne(id);
     }
     async updateFruit(id, update) {
-        const fruit = await entity_1.Fruit.findOne(id);
+        const fruit = await entity_1.default.findOne(id);
         if (!fruit)
             throw new routing_controllers_1.NotFoundError('Cannot find fruit');
-        return entity_1.Fruit.merge(fruit, update).save();
+        return entity_1.default.merge(fruit, update).save();
     }
     createFruit(fruit) {
         return fruit.save();
     }
     async deleteFruit(id) {
-        const fruit = await entity_1.Fruit.findOne(id);
+        const fruit = await entity_1.default.findOne(id);
         if (!fruit)
             throw new routing_controllers_1.NotFoundError('Fruit not found');
         fruit.remove();
@@ -67,7 +67,7 @@ __decorate([
     routing_controllers_1.HttpCode(201),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof entity_1.Fruit !== "undefined" && entity_1.Fruit) === "function" && _a || Object]),
+    __metadata("design:paramtypes", [entity_1.default]),
     __metadata("design:returntype", void 0)
 ], FruitController.prototype, "createFruit", null);
 __decorate([
@@ -81,5 +81,4 @@ FruitController = __decorate([
     routing_controllers_1.JsonController()
 ], FruitController);
 exports.default = FruitController;
-var _a;
 //# sourceMappingURL=controller.js.map
