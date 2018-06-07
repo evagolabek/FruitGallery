@@ -37,7 +37,7 @@ class EditFruitForm extends PureComponent {
     if (!fruit) return 'This fruit does not exist!'
 
 		return (
-			<div className='add-fruit-form'>
+			<div className='edit-fruit-form'>
 				<h1 style = {{ position: 'relative', top: 10 }}>Edit Fruit</h1>
 			  <Divider style={{ height:4, width: 500 }} />
 
